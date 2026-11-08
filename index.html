@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,174 +7,104 @@
   <title>NextGen Screen Studio</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <div class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="#"><span class="brand-mark"><i></i><i></i><i></i></span><span><b>NextGen</b><small>SCREEN
-            STUDIO</small></span></a>
-      <div class="top-status"><span class="status-dot" id="statusDot"></span><span id="statusText">READY TO
-          RECORD</span></div>
-      <button class="theme-btn" id="themeToggle" type="button" title="Switch to light mode"><span
-          class="theme-symbol">☼</span><span id="themeLabel">Light mode</span></button>
-      <!-- <button class="icon-btn" id="settingsBtn" title="Settings">⚙</button> -->
-    </header>
+<div class="app-shell">
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark"><i></i><i></i><i></i></span><span><b>NextGen</b><small>SCREEN STUDIO</small></span></a>
+    <div class="top-status"><span class="status-dot" id="statusDot"></span><span id="statusText">READY TO RECORD</span></div>
+    <button class="theme-btn" id="themeToggle" type="button" title="Switch to light mode"><span class="theme-symbol">☼</span><span id="themeLabel">Light mode</span></button>
+    <button class="icon-btn" id="settingsBtn" title="Settings">⚙</button>
+  </header>
 
-    <main class="layout">
-      <aside class="sidebar left">
-        <p class="side-heading">STUDIO</p>
-        <button class="nav-item active"><span>▣</span> Screen Recorder</button>
-        <button class="nav-item" id="libraryNav"><span>▤</span> Saved Videos</button>
-        <div class="side-card">
-          <span class="card-glyph">◆</span><b>100% Local</b>
-          <p>Your recordings are saved directly to a folder you choose. No cloud upload.</p>
+  <main class="layout">
+    <aside class="sidebar left">
+      <p class="side-heading">STUDIO</p>
+      <button class="nav-item active"><span>▣</span> Screen Recorder</button>
+      <button class="nav-item" id="libraryNav"><span>▤</span> Saved Videos</button>
+      <div class="side-card">
+        <span class="card-glyph">◆</span><b>100% Local</b>
+        <p>Your recordings are saved directly to a folder you choose. No cloud upload.</p>
+      </div>
+      <div class="storage-box"><div><b>LOCAL STORAGE</b><span id="storagePercent">--</span></div><div class="storage-track"><i id="storageBar"></i></div><small id="storageText">Storage information</small></div>
+    </aside>
+
+    <section class="content">
+      <div class="heading-row">
+        <div><p class="eyebrow">CAPTURE WORKSPACE</p><h1>Screen Recorder</h1><p class="muted">Capture any screen area and record in high quality.</p></div>
+        <span class="dark-chip"><i></i> RECORDING STUDIO</span>
+      </div>
+
+      <section class="preview-card">
+        <div class="preview-head"><b><i class="tiny-dot"></i> LIVE PREVIEW & AREA SELECTION</b><span id="previewHint">Choose a screen source first</span></div>
+        <div class="preview-stage" id="previewStage">
+          <video id="previewVideo" autoplay muted playsinline></video>
+          <div class="preview-placeholder" id="previewEmpty"><div class="screen-icon">▣</div><b>Ready for your screen</b><p>Choose a screen or window, then drag over the preview to select the recording area.</p><button class="primary-btn" id="chooseSourceBtn">Choose screen source</button></div>
+          <div class="selection-box" id="selectionBox" hidden><span class="selection-tag">RECORDING AREA</span><span class="resize-handle"></span></div>
+          <div class="preview-rec-indicator" id="previewRec"><i></i> REC <b id="overlayTimer">00:00:00</b></div>
         </div>
-        <div class="storage-box">
-          <div><b>LOCAL STORAGE</b><span id="storagePercent">--</span></div>
-          <div class="storage-track"><i id="storageBar"></i></div><small id="storageText">Storage information</small>
+        <div class="preview-footer">
+          <div class="source-info"><span class="source-icon">▣</span><span><b id="sourceName">No source selected</b><small id="sourceDetail">Screen / Window / Tab</small></span></div>
+          <div class="preview-buttons"><button class="secondary-btn" id="resetAreaBtn" disabled>Reset area</button><button class="secondary-btn" id="changeSourceBtn">Change source</button></div>
         </div>
-      </aside>
-
-      <section class="content">
-        <div class="heading-row">
-          <div>
-            <p class="eyebrow">CAPTURE WORKSPACE</p>
-            <h1>Screen Recorder</h1>
-            <p class="muted">Capture any screen area and record in high quality.</p>
-          </div>
-          <span class="dark-chip"><i></i> RECORDING STUDIO</span>
-        </div>
-
-        <section class="preview-card">
-          <div class="preview-head"><b><i class="tiny-dot"></i> LIVE PREVIEW & AREA SELECTION</b><span
-              id="previewHint">Choose a screen source first</span></div>
-          <div class="preview-stage" id="previewStage">
-            <video id="previewVideo" autoplay muted playsinline></video>
-            <div class="preview-placeholder" id="previewEmpty">
-              <div class="screen-icon">▣</div><b>Ready for your screen</b>
-              <p>Choose a screen or window, then drag over the preview to select the recording area.</p><button
-                class="primary-btn" id="chooseSourceBtn">Choose screen source</button>
-            </div>
-            <div class="selection-box" id="selectionBox" hidden><span class="selection-tag">RECORDING AREA</span><span
-                class="resize-handle"></span></div>
-            <div class="preview-rec-indicator" id="previewRec"><i></i> REC <b id="overlayTimer">00:00:00</b></div>
-          </div>
-          <div class="preview-footer">
-            <div class="source-info"><span class="source-icon">▣</span><span><b id="sourceName">No source
-                  selected</b><small id="sourceDetail">Screen / Window / Tab</small></span></div>
-            <div class="preview-buttons"><button class="secondary-btn" id="resetAreaBtn" disabled>Reset
-                area</button><button class="secondary-btn" id="changeSourceBtn">Change source</button></div>
-          </div>
-          <p class="selection-help">Tip: Drag inside the preview to draw the exact area you want to record. Drag again
-            to change it. The selected area is what gets saved in the video.</p>
-        </section>
-
-        <div class="two-col">
-          <section class="panel">
-            <div class="panel-heading">
-              <div>
-                <p class="eyebrow">SESSION CONTROL</p>
-                <h2>Recording</h2>
-              </div><span class="state-tag" id="recordState">READY</span>
-            </div>
-            <div class="timer" id="mainTimer">00:00:00</div>
-            <div class="timer-caption">RECORDING DURATION</div>
-            <div class="actions">
-              <button class="record-btn" id="recordBtn" disabled><i></i><span>Start recording</span></button>
-              <button class="square-btn" id="pauseBtn" disabled title="Pause / Resume">Ⅱ</button>
-              <button class="square-btn stop" id="stopBtn" disabled title="Stop recording">■</button>
-            </div>
-            <p class="helper" id="recordHint">Choose a screen source and save folder to begin.</p>
-          </section>
-
-          <section class="panel">
-            <div class="panel-heading">
-              <div>
-                <p class="eyebrow">OUTPUT QUALITY</p>
-                <h2>Video settings</h2>
-              </div><span class="settings-glyph">◈</span>
-            </div>
-            <div class="video-options-grid">
-              <div class="video-option-card">
-                <div class="option-heading"><label for="qualitySelect">Video quality</label><span
-                    class="option-icon">◈</span></div>
-                <small>Controls image detail and file size</small>
-                <select id="qualitySelect">
-                  <option value="standard">Standard · 720p</option>
-                  <option value="high" selected>High · 1080p</option>
-                  <option value="ultra">Ultra · 1440p</option>
-                  <option value="4k">Maximum · 4K</option>
-                </select>
-              </div>
-              <div class="video-option-card">
-                <div class="option-heading"><label for="fpsSelect">Frame rate</label><span class="option-icon">◷</span>
-                </div>
-                <small>Controls motion smoothness</small>
-                <select id="fpsSelect">
-                  <option value="30">30 FPS · Standard</option>
-                  <option value="60" selected>60 FPS · Smooth</option>
-                </select>
-              </div>
-            </div>
-            <div class="setting-row toggle-row">
-              <div><label for="systemAudioToggle">System / tab audio</label><small>Enable audio in the screen-share
-                  prompt</small></div><label class="switch"><input type="checkbox" id="systemAudioToggle"
-                  checked><span></span></label>
-            </div>
-            <div class="setting-row toggle-row">
-              <div><label for="micToggle">Microphone</label><small>Record your voice</small></div><label
-                class="switch"><input type="checkbox" id="micToggle" checked><span></span></label>
-            </div>
-          </section>
-        </div>
-
-        <section class="panel save-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="eyebrow">LOCAL FILE DESTINATION</p>
-              <h2>Save recording to device</h2>
-            </div><span class="local-tag">● ON DEVICE</span>
-          </div>
-          <div class="save-row"><span class="folder-icon">▰</span>
-            <div class="folder-info"><b id="folderName">No folder selected</b><small id="folderPath">Choose Desktop or
-                another local folder</small></div><button class="secondary-btn" id="folderBtn">Choose folder</button>
-          </div>
-          <p class="fine-print">Direct file writing is supported in current desktop Chrome / Edge. The browser will ask
-            you to authorize the folder. Keep the browser open during recording.</p>
-        </section>
-
-        <section class="panel recent-panel" id="recentPanel">
-          <div class="panel-heading">
-            <div>
-              <p class="eyebrow">LOCAL LIBRARY</p>
-              <h2>Recent recordings</h2>
-            </div><span class="optional-tag">THIS DEVICE</span>
-          </div>
-          <div id="recentList" class="recent-list">
-            <div class="empty-list">No recordings saved in this session yet.</div>
-          </div>
-        </section>
+        <p class="selection-help">Tip: Drag inside the preview to draw the exact area you want to record. Drag again to change it. The selected area is what gets saved in the video.</p>
       </section>
 
-      <aside class="sidebar right">
-        <p class="side-heading">QUICK GUIDE</p>
-        <div class="quick-card"><span class="quick-icon blue">⌗</span>
-          <div><b>Selected region</b><small>Only the outlined area is recorded.</small></div>
-        </div>
-        <div class="quick-card"><span class="quick-icon orange">♫</span>
-          <div><b>Audio mixer</b><small>Microphone and shared audio are mixed.</small></div>
-        </div>
-        <div class="tip-card"><b>IMPORTANT AUDIO TIP</b>
-          <p>When sharing a screen, enable “Share system audio” or “Share tab audio” in the browser's sharing dialog.
-            Microphone permission is requested separately.</p>
-        </div>
-        <div class="tip-card"><b>QUALITY TIP</b>
-          <p>Choose a high-resolution source and keep the original display resolution. The app cannot create detail that
-            is not present in the captured source.</p>
-        </div>
-      </aside>
-    </main>
-    
+      <div class="two-col">
+        <section class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">SESSION CONTROL</p><h2>Recording</h2></div><span class="state-tag" id="recordState">READY</span></div>
+          <div class="timer" id="mainTimer">00:00:00</div><div class="timer-caption">RECORDING DURATION</div>
+          <div class="actions">
+            <button class="record-btn" id="recordBtn" disabled><i></i><span>Start recording</span></button>
+            <button class="square-btn" id="pauseBtn" disabled title="Pause / Resume">Ⅱ</button>
+            <button class="square-btn stop" id="stopBtn" disabled title="Stop recording">■</button>
+          </div>
+          <p class="helper" id="recordHint">Choose a screen source and save folder to begin.</p>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">OUTPUT QUALITY</p><h2>Video settings</h2></div><span class="settings-glyph">◈</span></div>
+          <div class="video-options-grid">
+            <div class="video-option-card">
+              <div class="option-heading"><label for="qualitySelect">Video quality</label><span class="option-icon">◈</span></div>
+              <small>Controls image detail and file size</small>
+              <select id="qualitySelect">
+                <option value="standard">Standard · 720p</option>
+                <option value="high" selected>High · 1080p</option>
+                <option value="ultra">Ultra · 1440p</option>
+                <option value="4k">Maximum · 4K</option>
+              </select>
+            </div>
+            <div class="video-option-card">
+              <div class="option-heading"><label for="fpsSelect">Frame rate</label><span class="option-icon">◷</span></div>
+              <small>Controls motion smoothness</small>
+              <select id="fpsSelect"><option value="30">30 FPS · Standard</option><option value="60" selected>60 FPS · Smooth</option></select>
+            </div>
+          </div>
+          <div class="setting-row toggle-row"><div><label for="systemAudioToggle">System / tab audio</label><small>Enable audio in the screen-share prompt</small></div><label class="switch"><input type="checkbox" id="systemAudioToggle" checked><span></span></label></div>
+          <div class="setting-row toggle-row"><div><label for="micToggle">Microphone</label><small>Record your voice</small></div><label class="switch"><input type="checkbox" id="micToggle" checked><span></span></label></div>
+        </section>
+      </div>
+
+      <section class="panel save-panel">
+        <div class="panel-heading"><div><p class="eyebrow">LOCAL FILE DESTINATION</p><h2>Save recording to device</h2></div><span class="local-tag">● ON DEVICE</span></div>
+        <div class="save-row"><span class="folder-icon">▰</span><div class="folder-info"><b id="folderName">No folder selected</b><small id="folderPath">Choose Desktop or another local folder</small></div><button class="secondary-btn" id="folderBtn">Choose folder</button></div>
+        <p class="fine-print">Direct file writing is supported in current desktop Chrome / Edge. The browser will ask you to authorize the folder. Keep the browser open during recording.</p>
+      </section>
+
+      <section class="panel recent-panel" id="recentPanel">
+        <div class="panel-heading"><div><p class="eyebrow">LOCAL LIBRARY</p><h2>Recent recordings</h2></div><span class="optional-tag">THIS DEVICE</span></div>
+        <div id="recentList" class="recent-list"><div class="empty-list">No recordings saved in this session yet.</div></div>
+      </section>
+    </section>
+
+    <aside class="sidebar right">
+      <p class="side-heading">QUICK GUIDE</p>
+      <div class="quick-card"><span class="quick-icon blue">⌗</span><div><b>Selected region</b><small>Only the outlined area is recorded.</small></div></div>
+      <div class="quick-card"><span class="quick-icon orange">♫</span><div><b>Audio mixer</b><small>Microphone and shared audio are mixed.</small></div></div>
+      <div class="tip-card"><b>IMPORTANT AUDIO TIP</b><p>When sharing a screen, enable “Share system audio” or “Share tab audio” in the browser's sharing dialog. Microphone permission is requested separately.</p></div>
+      <div class="tip-card"><b>QUALITY TIP</b><p>Choose a high-resolution source and keep the original display resolution. The app cannot create detail that is not present in the captured source.</p></div>
+    </aside>
+  </main>
 <footer class="site-footer">
 
     <div class="footer-glow footer-glow-one"></div>
@@ -370,28 +299,29 @@
     </div>
 
 </footer>
+</div>
 
-  </div>
+<dialog id="finishDialog" class="modal finish-modal">
+  <form method="dialog">
+    <button class="modal-close" aria-label="Close">×</button>
+    <p class="eyebrow">RECORDING COMPLETED</p><h2>Your video is ready</h2>
+    <video id="finishedVideo" controls playsinline preload="metadata"></video>
+    <div class="result-details">
+      <div><small>VIDEO NAME</small><b id="resultName">—</b></div>
+      <div><small>SAVE LOCATION</small><b id="resultLocation">—</b></div>
+      <div><small>QUALITY</small><b id="resultQuality">—</b></div>
+      <div><small>DURATION / FILE SIZE</small><b id="resultMeta">—</b></div>
+    </div>
+    <div class="modal-actions"><button class="secondary-btn" id="playAgainBtn" type="button">Replay video</button><button class="primary-btn" id="doneBtn" type="submit">Done</button></div>
+  </form>
+</dialog>
 
+<dialog id="settingsDialog" class="modal">
+  <form method="dialog"><button class="modal-close" aria-label="Close">×</button><p class="eyebrow">APPLICATION SETTINGS</p><h2>Studio information</h2><div class="result-details"><div><small>THEME</small><b>Dark / Light · User selectable</b></div><div><small>VIDEO FORMAT</small><b>WebM</b></div><div><small>PRIVACY</small><b>Local recording · No upload</b></div></div><p class="fine-print">The browser controls access to your screen, microphone, and selected destination folder.</p><button class="primary-btn full-btn">Close</button></form>
+</dialog>
 
-
-  <dialog id="settingsDialog" class="modal">
-    <form method="dialog"><button class="modal-close" aria-label="Close">×</button>
-      <p class="eyebrow">APPLICATION SETTINGS</p>
-      <h2>Studio information</h2>
-      <div class="result-details">
-        <div><small>THEME</small><b>Dark / Light · User selectable</b></div>
-        <div><small>VIDEO FORMAT</small><b>WebM</b></div>
-        <div><small>PRIVACY</small><b>Local recording · No upload</b></div>
-      </div>
-      <p class="fine-print">The browser controls access to your screen, microphone, and selected destination folder.</p>
-      <button class="primary-btn full-btn">Close</button>
-    </form>
-  </dialog>
-
-  <script src="js/storage.js"></script>
-  <script src="js/recorder.js"></script>
-  <script src="js/main.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/recorder.js"></script>
+<script src="js/main.js"></script>
 </body>
-
 </html>
